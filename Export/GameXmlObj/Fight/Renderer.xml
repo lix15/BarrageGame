@@ -1,0 +1,5 @@
+<GameObject Xml_GameObjectName="Renderer">
+  <Component Assembly="Assembly-CSharp" Name="GameRole.Renderer">
+    <Params LuaPath="{$}FightLua/Renderer.lua"/>
+  </Component>
+</GameObject>

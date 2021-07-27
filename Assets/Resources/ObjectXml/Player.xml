@@ -1,0 +1,8 @@
+<GameObject Xml_GameObjectName="Player">
+  <Component Assembly="Assembly-CSharp" Name="GameRole.PlayerPlane">
+    <Params />
+  </Component>
+  <Import Path="{$}Fight/MachineGun.xml"/>
+  <Import Path="{$}Fight/Renderer.xml"/>
+  <Import Path="{$}Fight/Controller.xml"/>
+</GameObject>

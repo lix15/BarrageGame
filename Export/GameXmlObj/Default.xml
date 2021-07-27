@@ -1,0 +1,3 @@
+<GameObject Xml_GameObjectName="Main">
+    <Import Path="{$}Fight/PlayerPlane.xml" />
+</GameObject>
