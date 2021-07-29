@@ -19,6 +19,12 @@ namespace ChunkGame.Assets
             Url = url;
         }
 
+        public Texture2DAsset(string url,Vector2Int size)
+        {
+            Url = url;
+            this.size = size;
+        }
+
         public Vector2Int size { get; set; } = new Vector2Int(0, 0);
 
         public void Read(Action<Texture2D> func)

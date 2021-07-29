@@ -29,15 +29,8 @@ namespace ChunkGame.Assets
         }
         #endregion
 
-        private Dictionary<string, Queue<object>> ObjectPool = new Dictionary<string, Queue<object>>();
-
         public void LoadAsset<T, Obj>(string url, Action<Obj> callback) where T : class, IAsset<Obj> where Obj : class
         {
-            if (ObjectPool.ContainsKey(url) && ObjectPool[url].Count > 0)
-            {
-                callback(ObjectPool[url].Dequeue() as Obj);
-                return;
-            }
             IAsset<Obj> assets = Activator.CreateInstance(typeof(T), url) as IAsset<Obj>;
             assets.Read(callback);
         }

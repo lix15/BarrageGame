@@ -26,7 +26,7 @@ namespace ChunkGame.Lua
                 Debug.LogError("Lua路径为空");
                 return;
             }
-            MainStarter.FileCreater(LuaPath, "--这个lua脚本不存在，所以我帮你创建了。(*･ω< ) \n" + "function start()\nend");
+            IOTools.FileCreater(LuaPath, "--这个lua脚本不存在，所以我帮你创建了。(*･ω< ) \n" + "function start()\nend");
             AssetsManager.Instance.LoadAsset<StringAsset, string>(LuaPath, InitScript);
         }
 

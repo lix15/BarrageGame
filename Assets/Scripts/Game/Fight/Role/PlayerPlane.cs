@@ -6,12 +6,8 @@ using UnityEngine;
 
 namespace GameRole
 {
-    public class PlayerPlane : LuaBehaviour
+    public class PlayerPlane : MonoBehaviour
     {
-        protected override void InitScript(string script)
-        {
-            base.InitScript(script);
-
-        }
+        
     }
 }

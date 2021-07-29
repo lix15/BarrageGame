@@ -11,5 +11,11 @@ namespace GameRole
     public class Controller : LuaBehaviour
     {
 
+        private void FixedUpdate()
+        {
+            
+        }
+
+
     }
 }

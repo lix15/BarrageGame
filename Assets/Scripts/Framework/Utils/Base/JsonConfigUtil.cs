@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UnityEngine;
 
 namespace ChunkGame.Utils
 {
@@ -10,12 +6,12 @@ namespace ChunkGame.Utils
     {
         public T FromConfig<T>(string config)
         {
-            throw new NotImplementedException();
+            return JsonUtility.FromJson<T>(config);
         }
 
         public string ToConfig(object obj)
         {
-            throw new NotImplementedException();
+            return JsonUtility.ToJson(obj);
         }
     }
 }

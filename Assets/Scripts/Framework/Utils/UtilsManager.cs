@@ -10,7 +10,7 @@ namespace ChunkGame.Utils
     public class UtilsManager
     {
         public static ILog Loger { get; private set; } = new Loger();
-        public static IConfigUtils ConfigUtil { get; private set; }
+        public static IConfigUtils ConfigUtil { get; private set; } = new JsonConfigUtil();
         public static ITimeTask TimeTask { get; private set; }
 
         public static ICoroutines CoroutinesUtil { get; private set; }

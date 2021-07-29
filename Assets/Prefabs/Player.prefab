@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a2c2c6d856fd540b19efe9304edaf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _DefaultObjXml: {fileID: 4900000, guid: 9cfa5d449bbd90b40809cf0d4560d155, type: 3}
+  LuaPath: 

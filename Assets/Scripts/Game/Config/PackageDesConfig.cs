@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameRole
+[Serializable]
+public class PackageDesConfig
 {
-    public class RoleData
-    {
-
-    }
+    public string Author;
+    public string Description;
 }
