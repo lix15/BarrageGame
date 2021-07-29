@@ -4,13 +4,17 @@ using UnityEngine;
 using ChunkGame.Lua;
 using ChunkGame.Utils;
 using System.Collections;
+using GameRole;
 
 public class GameMain : MonoBehaviour,ICoroutines
 {
+    public PlayerPlane plane;
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        PathConfig.InitPath(Application.dataPath + "/../Export/");
         InitUtils();
+        ConfigAnalysis();
     }
 
     private void Update()
@@ -29,12 +33,10 @@ public class GameMain : MonoBehaviour,ICoroutines
     /// </summary>
     public void ConfigAnalysis()
     {
-
-    }
-
-    public void GameObjectCreateFromXml(string path, Action<GameObject> finish)
-    {
-
+        AssetsLoader.GetInstance().ReadExportAssets(() => {
+            //finish
+            plane.InitPlane("10001");
+        });
     }
 
     void ICoroutines.StartCoroutine(IEnumerator enumerator)

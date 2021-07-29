@@ -1,5 +1,0 @@
-<GameObject Xml_GameObjectName="Controller">
-  <Component Assembly="Assembly-CSharp" Name="GameRole.Controller">
-    <Params LuaPath="{$}FightLua/Controller.lua"/>
-  </Component>
-</GameObject>

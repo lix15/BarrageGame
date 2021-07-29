@@ -1,5 +1,0 @@
-<GameObject Xml_GameObjectName="MachineGun">
-  <Component Assembly="Assembly-CSharp" Name="GameRole.MachineGun">
-    <Params LuaPath="{$}FightLua/MachineGun.lua"/>
-  </Component>
-</GameObject>
