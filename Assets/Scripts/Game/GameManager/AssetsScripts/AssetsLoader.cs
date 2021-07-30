@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using ChunkGame.Utils;
 
 public class AssetsLoader : Singleton<AssetsLoader>
 {
@@ -12,6 +13,7 @@ public class AssetsLoader : Singleton<AssetsLoader>
     public Dictionary<string, DirectoryInfo> PlayerPackage = new Dictionary<string, DirectoryInfo>();
     public Dictionary<string, DirectoryInfo> EnemyPackage = new Dictionary<string, DirectoryInfo>();
     public Dictionary<string, DirectoryInfo> PropPackage = new Dictionary<string, DirectoryInfo>();
+    public GameConfig _GameConfig = new GameConfig();
 
     public void ReadExportAssets(Action Finish)
     {
@@ -45,7 +47,13 @@ public class AssetsLoader : Singleton<AssetsLoader>
 
     private void ReadConfig()
     {
-
+        string path = PathConfig.CONFIG + PathConfig.Game.DefalutConfig;
+        if (!File.Exists(path))
+        {
+            File.WriteAllText(path, UtilsManager.ConfigUtil.ToConfig(_GameConfig));
+            return;
+        }
+        _GameConfig = UtilsManager.ConfigUtil.FromConfig<GameConfig>(File.ReadAllText(path));
     }
 
     /// <summary>

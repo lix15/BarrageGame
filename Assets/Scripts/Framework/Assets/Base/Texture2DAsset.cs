@@ -37,6 +37,7 @@ namespace ChunkGame.Assets
             byte[] data = File.ReadAllBytes(Url);
             getAsset = new Texture2D(size.x, size.y);
             getAsset.LoadImage(data);
+            func(getAsset);
         }
     }
 }
