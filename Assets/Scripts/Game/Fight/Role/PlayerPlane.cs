@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace GameRole
 {
+    [RequireComponent(typeof(Controller))]
     public class PlayerPlane : MonoBehaviour
     {
         public PlaneCore _Core;

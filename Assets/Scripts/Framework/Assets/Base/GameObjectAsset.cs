@@ -19,11 +19,13 @@ namespace ChunkGame.Assets
         public GameObject getAsset { get; private set; }
 
         public string Url { get; private set; }
+        private string LocalDirUrl;
 
         public XmlDocument xml;
 
         public GameObjectAsset(string xmlPath)
         {
+            LocalDirUrl = Path.GetDirectoryName(xmlPath);
             Url = xmlPath;
             xml = new XmlDocument();
             xml.Load(xmlPath);
@@ -100,7 +102,7 @@ namespace ChunkGame.Assets
             foreach (XmlElement item in nodeList)
             {
                 string import = item.GetAttribute("Path");
-                import = import.Replace("{$}", Application.dataPath + "/../Export/GameXmlObj/");
+                import = import.Replace("{$}", LocalDirUrl + "/");
                 //记录物体Xml及其父物体
                 ImportQueue.Enqueue(new ImportObj { path = import, parent = obj, });
             }

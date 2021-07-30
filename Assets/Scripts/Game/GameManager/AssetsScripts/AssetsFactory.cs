@@ -16,10 +16,12 @@ public class AssetsFactory : MonoBehaviour
     public TextAsset defaultDes;
     public TextAsset defaultPlane;
 
-    private static AssetsFactory Self;
+    public TextAsset defaultPlaneModel;
+
+    private static AssetsFactory self;
     private void Awake()
     {
-        Self = this;
+        self = this;
     }
 
     public static void GetPlayerObject(string key, Action<PlayerPackage> finish)
@@ -28,17 +30,18 @@ public class AssetsFactory : MonoBehaviour
         DirectoryInfo planePackage = AssetsLoader.GetInstance().PlayerPackage[key];
         string Des = planePackage.FullName + PathConfig.Player.Des;
         string Plane = planePackage.FullName + PathConfig.Player.PlaneConfig;
-        IOTools.FileCreater(Des, Self.defaultDes.text);
-        IOTools.FileCreater(Plane, Self.defaultPlane.text);
+        IOTools.FileCreater(Des, self.defaultDes.text);
+        IOTools.FileCreater(Plane, self.defaultPlane.text);
         PackageDesConfig desConfig = UtilsManager.ConfigUtil.FromConfig<PackageDesConfig>(File.ReadAllText(Des));
         package.Des = desConfig;
         PlaneConfig planeConfig = UtilsManager.ConfigUtil.FromConfig<PlaneConfig>(File.ReadAllText(Plane));
         package.Config = planeConfig;
 
-        GameObjectAsset gObj = new GameObjectAsset(planeConfig.ModelXml);
+        string planeModel = planePackage.FullName + "/" + planeConfig.ModelXml;
+        IOTools.FileCreater(planeModel, self.defaultPlaneModel.text);
+        GameObjectAsset gObj = new GameObjectAsset(planeModel);
         gObj.Read((planeObj) => {
-            planeObj.transform.SetParent(Self.PlanePool);
-            planeObj.SetActive(false);
+            planeObj.transform.SetParent(self.PlanePool);
             package.Plane = planeObj.GetComponent<PlaneCore>();
             finish(package);
         });

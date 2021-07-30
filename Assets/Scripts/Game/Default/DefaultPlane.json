@@ -1,0 +1,8 @@
+{
+  "Name": "",
+  "Description": "",
+  "Hp": 0,
+  "Defense": 0,
+  "ModelXml": "PlaneCore.xml",
+  "DefaultMachine": "MachineGun.json"
+}

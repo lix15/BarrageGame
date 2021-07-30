@@ -1,0 +1,5 @@
+<GameObject Xml_GameObjectName="PlaneCore">
+  <Component Assembly="" Name="GameRole.PlaneCore">
+    <Params LuaPath="{$}DefaultLua/DefaultPlaneCore.lua"/>
+  </Component>
+</GameObject>
